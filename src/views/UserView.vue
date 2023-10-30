@@ -1,15 +1,21 @@
 <template>
-  <div>USer</div>
+  <div>
+    <p>id : {{ fetchedUser.id }}</p>
+    <p>karma : {{ fetchedUser.karma }}</p>
+    <p>joined : {{ fetchedUser.created }}</p>
+  </div>
 </template>
 
 <script>
-import { fetchUser } from '@/api';
+import { mapGetters } from 'vuex';
 export default {
   created() {
-    fetchUser('davideast')
-      .then(resp => console.log(resp))
-      .catch(err => console.log(err));
-  }
+    const userId = this.$route.params.id;
+    this.$store.dispatch('FETCH_USER', userId);
+  },
+  computed: {
+    ...mapGetters(['fetchedUser']),
+  },
 }
 </script>
 

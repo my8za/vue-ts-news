@@ -8,8 +8,8 @@ const routes = [
   { path: '/news', component: () => import('../views/NewsView.vue') },
   { path: '/ask', component: () => import('../views/AskView.vue') },
   { path: '/jobs', component: () => import('../views/JobsView.vue') },
-  { path: '/item', component: () => import('../views/ItemView.vue') },
-  { path: '/user', component: () => import('../views/UserView.vue') },
+  { path: '/item/:id', component: () => import('../views/ItemView.vue') },
+  { path: '/user/:id', component: () => import('../views/UserView.vue') },
 ];
 
 export default new VueRouter({
