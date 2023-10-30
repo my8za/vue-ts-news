@@ -1,15 +1,13 @@
 <template>
   <div>
-    <p v-for="ask in this.$store.state.ask" :key="ask.id">
-      <a :href="ask.url">{{ ask.title }}</a>
-      <br />
-      <small>{{ ask.time_ago }} by {{ ask.user }}</small>
-    </p>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
+import ListItem from '@/components/ListItem.vue';
 export default {
+  components: { ListItem },
   created() {
     this.$emit('on:progress');
     this.$store.dispatch('FETCH_ASK')
