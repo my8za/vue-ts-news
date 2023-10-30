@@ -2,7 +2,9 @@
 import {
   fetchNews,
   fetchAsk,
-  fetchJobs
+  fetchJobs,
+  fetchUser,
+  fetchItem
 } from '@/api';
 
 // 비동기 호출
@@ -14,6 +16,12 @@ export default {
     return fetchAsk().then((resp) => commit('SET_ASK', resp.data));
   },
   FETCH_JOBS({ commit }) {
-    return fetchJobs().then((resp) => commit('SET_JOBS', resp.data));
+    return fetchJobs().then(resp => commit('SET_JOBS', resp.data));
   },
-};
+  FETCH_USER({ commit }, userId) {
+    return fetchUser(userId).then(resp => commit('SET_USER', resp.data));
+  },
+  FETCH_ITEM({ commit }, itemId) {
+    return fetchItem(itemId).then(resp => commit('SET_ITEM', resp.data));
+  },
+}
