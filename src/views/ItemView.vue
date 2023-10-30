@@ -22,8 +22,11 @@
 import { mapGetters } from 'vuex';
 export default {
   created() {
+    this.$emit('on:progress')
     const itemId = this.$route.params.id;
-    this.$store.dispatch('FETCH_ITEM', itemId);
+    this.$store.dispatch('FETCH_ITEM', itemId)
+      .then(() => this.$emit('off:progress'))
+      .catch(err => console.log('user fetch error', err))
   },
   computed: {
     ...mapGetters(['fetchedItem']),
