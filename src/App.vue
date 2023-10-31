@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <progress-bar :loading="loading"></progress-bar>
+    <spinner :loading="loading"></spinner>
     <tool-bar></tool-bar>
     <transition name="routing-fade" mode="out-in">
       <router-view></router-view>
@@ -10,13 +10,13 @@
 
 <script>
 import ToolBar from './components/ToolBar.vue'
-import ProgressBar from './components/ProgressBar.vue';
+import Spinner from './components/Spinner.vue';
 import bus from './utils/bus';
 
 export default {
   components: {
     ToolBar,
-    ProgressBar
+    Spinner
   },
   data() {
     return {
@@ -41,8 +41,7 @@ export default {
 }
 </script>
 
-<st
-    ProgressBaryle>
+<style>
 body {
   margin: 0;
 }
