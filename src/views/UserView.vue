@@ -7,14 +7,11 @@
 </template>
 
 <script>
+import bus from '@/utils/bus';
 import { mapGetters } from 'vuex';
 export default {
   created() {
-    this.$emit('on:progress');
-    const userId = this.$route.params.id;
-    this.$store.dispatch('FETCH_USER', userId)
-      .then(() => this.$emit('off:progress'))
-      .catch(err => console.log('user fetch error', err));
+    bus.$emit('off:progress');
   },
   computed: {
     ...mapGetters(['fetchedUser']),
