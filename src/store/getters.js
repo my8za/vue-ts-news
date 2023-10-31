@@ -5,6 +5,10 @@ export default {
   fetchedUser(state) {
     return state.user;
   },
+  // hoc
+  fetchedList(state) {
+    return state.list;
+  },
   // ItemView
   userName(state) {
     return state.item.user;
