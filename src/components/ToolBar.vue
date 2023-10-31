@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{'fixed': isFixed}" ref="appHeader">
     <img src="../assets/logo.svg" alt="logo" class="logo">
     <router-link to="/news">News</router-link>
     <router-link to="/ask">Ask</router-link>
@@ -9,7 +9,24 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      navHeight: 0,
+      isFixed: false
+    }
+  },
+  mounted() {
+    this.navHeight = this.$refs.appHeader.offsetHeight;
+    window.addEventListener('scroll', this.checkHeight);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.checkHeight);
+  },
+  methods: {
+    checkHeight() {
+      this.isFixed = window.scrollY > this.navHeight ? true : false;
+    }
+  },
 }
 </script>
 
