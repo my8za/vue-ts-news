@@ -20,17 +20,14 @@
 <script>
 import { mapGetters } from 'vuex';
 import UserProfile from '@/components/UserProfile.vue';
+import bus from '@/utils/bus';
 
 export default {
   components: {
     UserProfile
   },
   created() {
-    this.$emit('on:progress')
-    const itemId = this.$route.params.id;
-    this.$store.dispatch('FETCH_ITEM', itemId)
-      .then(() => this.$emit('off:progress'))
-      .catch(err => console.log('user fetch error', err))
+    bus.$emit('off:progress');
   },
   computed: {
   ...mapGetters([
