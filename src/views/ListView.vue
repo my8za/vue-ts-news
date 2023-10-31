@@ -6,11 +6,12 @@
 
 <script>
 import ListItem from '@/components/ListItem.vue';
+
 export default {
-  components: {ListItem},
+  components: { ListItem },
   created() {
     this.$emit('on:progress');
-    this.$store.dispatch('FETCH_JOBS')
+    this.$store.dispatch('FETCH_LIST', this.$route.name)
       .then(() => this.$emit('off:progress'))
       .catch(() => console.log('fail'));
   }
