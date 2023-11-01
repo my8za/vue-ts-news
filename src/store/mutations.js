@@ -18,5 +18,10 @@ export default {
   // hoc
   SET_LIST(state, list) {
     state.list = list;
+  },
+
+  // token
+  SET_TOKEN(state, token) {
+    state.token = token;
   }
 };

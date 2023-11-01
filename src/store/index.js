@@ -14,8 +14,11 @@ export default new Vuex.Store({
     user: [],
     item: [],
     list: [],
+    
+    // 사용자 권한 데이터, 토큰
+    token: '',
   },
   getters,
   mutations,
   actions,
-})
+});
