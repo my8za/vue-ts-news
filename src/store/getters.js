@@ -25,4 +25,9 @@ export default {
   contentPoints(state) {
     return state.item.points;
   },
+
+  // token
+  getToken(state) {
+    return state.token
+  }
 };
